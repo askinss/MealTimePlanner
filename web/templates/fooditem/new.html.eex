@@ -1,0 +1,6 @@
+<h2>New fooditem</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: fooditem_path(@conn, :create) %>
+
+<%= link "Back", to: fooditem_path(@conn, :index) %>

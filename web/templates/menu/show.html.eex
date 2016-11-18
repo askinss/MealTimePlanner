@@ -1,0 +1,28 @@
+<h2>Show menu</h2>
+
+<ul>
+
+  <li>
+    <strong>Menu name:</strong>
+    <%= @menu.menu_name %>
+  </li>
+
+  <li>
+    <strong>Meal time:</strong>
+    <%= @menu.meal_time %>
+  </li>
+
+  <li>
+    <strong>Recipe:</strong>
+    <%= @menu.recipe %>
+  </li>
+
+  <li>
+    <strong>Display image:</strong>
+    <%= @menu.display_image %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: menu_path(@conn, :edit, @menu) %>
+<%= link "Back", to: menu_path(@conn, :index) %>

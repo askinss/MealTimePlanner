@@ -1,0 +1,32 @@
+<h2>Listing menus</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Menu name</th>
+      <th>Meal time</th>
+      <th>Recipe</th>
+      <th>Display image</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for menu <- @menus do %>
+    <tr>
+      <td><%= menu.menu_name %></td>
+      <td><%= menu.meal_time %></td>
+      <td><%= menu.recipe %></td>
+      <td><%= menu.display_image %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: menu_path(@conn, :show, menu), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: menu_path(@conn, :edit, menu), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: menu_path(@conn, :delete, menu), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New menu", to: menu_path(@conn, :new) %>

@@ -1,0 +1,30 @@
+<h2>Listing fooditems</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Foodname</th>
+      <th>Foodgroup</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for fooditem <- @fooditems do %>
+    <tr>
+      <td><%= fooditem.foodname %></td>
+      <td><%= fooditem.foodgroup %></td>
+      <td><%= fooditem.status %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: fooditem_path(@conn, :show, fooditem), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: fooditem_path(@conn, :edit, fooditem), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: fooditem_path(@conn, :delete, fooditem), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New fooditem", to: fooditem_path(@conn, :new) %>
